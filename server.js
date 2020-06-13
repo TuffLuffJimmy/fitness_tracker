@@ -1,4 +1,4 @@
-require('dotenv/config')
+require('dotenv').config()
 const express = require('express')
 const { join } = require('path')
 const app = express()
@@ -23,5 +23,5 @@ app.get('/exercise', (req, res) => {
 })
 
 require('./config')
-	.then(() => app.listen(3000, () => console.log('running on port 3000 ', process.env.SECRET_MESSAGE)))
+	.then(() => app.listen(process.env.PORT || 3000, () => console.log('running on port 3000 ', process.env.SECRET_MESSAGE)))
 	.catch((err) => console.error(err))
