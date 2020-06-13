@@ -3,7 +3,7 @@ const router = Router()
 const { Workout } = require('../models')
 
 // GET ALL
-router.get('/api/workouts', (req, res) => {
+router.get('/api/workouts/range', (req, res) => {
   Workout.find()
     .then((dbExercise) => {
       res.json(dbExercise)
@@ -12,12 +12,12 @@ router.get('/api/workouts', (req, res) => {
 })
 
 // GET ONE
-// router.get('/api/workouts', (req, res) => {
-//   Exercise.find().sort('-date')
-//     .then((dbExercise) => {
-//       res.json(dbExercise)
-//     })
-// })
+router.get('/api/workouts', (req, res) => {
+  Exercise.find().sort('-date')
+    .then((dbExercise) => {
+      res.json(dbExercise)
+    })
+})
 
 router.post('/api/workouts', (req, res) => {
   Workout.create({})
