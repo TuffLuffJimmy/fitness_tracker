@@ -13,14 +13,14 @@ router.get('/api/workouts/range', (req, res) => {
 
 // GET ONE
 router.get('/api/workouts', (req, res) => {
-  Exercise.find().sort('-date')
+  Workout.find().sort('-date')
     .then((dbExercise) => {
       res.json(dbExercise)
     })
 })
 
 router.post('/api/workouts', (req, res) => {
-  Workout.create({})
+  Workout.create(req.body)
     .then((dbWorkout) => {
       res.json(dbWorkout)
     })
